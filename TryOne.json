@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>A try with Yaser</title>
-    <meta charset="utf-8">
-</head>
-<body>
-</body>
-</html>
+{
+    "maifest_version" : 2,
+    "name" : "Kgaby",
+    "version" : "1.0.0",
+    "content_scripts" : [{
+        "matches" : ["<all_url>"],
+        "js" : ["content.js"]
+        }]
+}
