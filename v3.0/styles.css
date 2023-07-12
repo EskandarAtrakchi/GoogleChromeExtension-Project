@@ -1,0 +1,13 @@
+.darkdiv {
+    background-color: #1c1c1c;
+    color: #FFFFFF;
+  }
+  
+  .dark-mode a {
+    color: #FFFFFF;
+  }
+  
+  .dark-mode button {
+    background-color: #FFFFFF;
+    color: #1c1c1c;
+  }
