@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "CDCFE",
+    "description": "Developed by Esakdnar Atrakchi",
+    "version": "1.0",
+    "action": {
+      "default_popup": "hello.html"
+    }
+  }
+  
