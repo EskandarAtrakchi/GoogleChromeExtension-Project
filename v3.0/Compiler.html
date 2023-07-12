@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Compiler</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F5F5F5;
+      margin: 0;
+      padding: 0;
+    }
+    
+    h1 {
+      font-size: 2em;
+      margin: 20px;
+    }
+    
+    #container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-size: 1.2em;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      resize: none;
+    }
+    
+    button {
+      display: block;
+      margin: 20px 0;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background-color: #4CAF50;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+    
+    button:hover {
+      background-color: #3E8E41;
+    }
+    
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #E0E0E0;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>JavaScript Compiler</h1>
+    <textarea id="expression">console.log('HelloWorld!');</textarea>
+    <button onclick="compile()">Compile</button>
+    <div id="result"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/acorn/dist/acorn.js"></script>
+  <script>
+    function compile() {
+      const expression = document.getElementById("expression").value;
+      const ast = acorn.parse(expression);
+      let consoleOutput = "";
+      const consoleLog = console.log;
+      console.log = function (text) {
+        consoleOutput += text + "\n";
+      };
+      eval(expression);
+      console.log = consoleLog;
+      document.getElementById("result").innerHTML = consoleOutput;
+    }
+  </script>
+  
+</body>
+</html>
