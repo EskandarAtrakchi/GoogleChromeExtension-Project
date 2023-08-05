@@ -1,14 +1,27 @@
 {
-    "manifest_version" : 2,
-    "name" : "Test",
-    "version" : "1.0.0",
-    "content_scripts" : [
-        {
-            "js" : ["Content.js"]
-        }
+    "manifest_version": 2,
+    "name": "Cryptocurrency Price Widget",
+    "version": "1.0",
+    "description": "Display real-time cryptocurrency prices.",
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*/*"],
+        "js": ["content_script.js"]
+      }
     ],
-    "browser_action" : {
-        "default_popup" : "popup.html",
-        "default_title" : "Developed by Eskandar"
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+      "activeTab"
+    ],
+    "action": {
+      "default_popup": "popup.html"
     }
-}
+  }
+  
